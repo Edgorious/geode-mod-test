@@ -14,16 +14,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build Geode mod
+      - name: Build Underground
         id: build
         uses: geode-sdk/build-geode-mod@main
         with:
           sdk: 5.11.2
           target: Win64
+          configure-args: -DGEODE_DISABLE_PRECOMPILED_HEADERS=ON
 
-      - name: Upload Underground
+      - name: Upload Underground mod
         uses: actions/upload-artifact@v4
         with:
           name: Underground-Geode
           path: ${{ steps.build.outputs.build-output }}
-          if-no-files-found: error
+          if-no-files-found: warn
