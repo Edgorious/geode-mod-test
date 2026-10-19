@@ -22,7 +22,7 @@ jobs:
           cli: latest
           target: Win64
           bindings: geode-sdk/bindings
-          bindings-ref: 7f6c2a75742856de88dad354e576dcff8a28e881
+          bindings-ref: /
 
       - name: Upload Underground
         uses: actions/upload-artifact@v4
