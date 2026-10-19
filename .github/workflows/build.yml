@@ -17,7 +17,7 @@ jobs:
       - name: Build Geode mod
         uses: geode-sdk/build-geode-mod@main
         with:
-          sdk: nightly
+          sdk: latest
           cli: latest
           build-config: Release
           bindings: geode-sdk/bindings
