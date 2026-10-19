@@ -22,11 +22,10 @@ jobs:
           cli: latest
           target: Win64
           bindings: geode-sdk/bindings
-          bindings-ref: /
+          bindings-ref: 2769df212b1107c592f15e98d2e059d013481add
 
       - name: Upload Underground
         uses: actions/upload-artifact@v4
         with:
           name: Underground-Geode
           path: ${{ steps.build.outputs.build-output }}
-
