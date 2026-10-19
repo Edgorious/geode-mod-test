@@ -6,10 +6,17 @@ project(Underground VERSION 1.0.0)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-include($ENV{GEODE_SDK}/cmake/Geode.cmake)
-
 add_library(${PROJECT_NAME} SHARED
     src/main.cpp
+)
+
+if(NOT DEFINED ENV{GEODE_SDK})
+    message(FATAL_ERROR "GEODE_SDK is not set")
+endif()
+
+add_subdirectory(
+    "$ENV{GEODE_SDK}"
+    "${CMAKE_BINARY_DIR}/geode-sdk"
 )
 
 setup_geode_mod(${PROJECT_NAME})
