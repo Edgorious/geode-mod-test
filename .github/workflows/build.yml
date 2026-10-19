@@ -14,7 +14,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build Geode mod
+      - name: Build Underground
         id: build
         uses: geode-sdk/build-geode-mod@main
         with:
@@ -22,10 +22,11 @@ jobs:
           cli: latest
           target: Win64
           bindings: geode-sdk/bindings
+          bindings-ref: 7f6c2a75742856de88dad354e576dcff8a28e881
 
-      - name: Upload Underground mod
+      - name: Upload Underground
         uses: actions/upload-artifact@v4
         with:
           name: Underground-Geode
-          path: build/**/*.geode
-          if-no-files-found: warn
+          path: ${{ steps.build.outputs.build-output }}
+
